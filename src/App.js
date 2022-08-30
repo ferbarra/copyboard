@@ -12,7 +12,15 @@ function App() {
     </div>
   );
 }
+class Entries extends React.Component {
+    constructor(props) {
+        super(props)
+    }
 
+    render() {
+        return <ul></ul>
+    }
+}
 class Entry extends React.Component {
     render() {
         return <p>{this.props.copyValue}</p>
