@@ -7,18 +7,21 @@ function App() {
       <header className="App-header">
         <h1>Copyboard</h1>
       </header>
-        <Entry copyValue="Hello, World!"></Entry>
-        <Entry copyValue="awijdiqjhdf"></Entry>
+        <Entries/>
     </div>
   );
 }
 class Entries extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            copyValues: ["Caca", "Tua"]
+        }
     }
 
     render() {
-        return <ul></ul>
+        let x = this.state.copyValues.map((value, index) => <Entry key={index} copyValue={value}/>)
+        return <div>{x}</div>
     }
 }
 class Entry extends React.Component {
