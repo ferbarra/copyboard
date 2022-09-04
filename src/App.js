@@ -17,11 +17,24 @@ class Entries extends React.Component {
         this.state = {
             copyValues: ["Caca", "Tua"]
         }
+
+        this.addEntry = this.addEntry.bind(this)
+    }
+
+    addEntry() {
+        this.setState((state) => ({
+            copyValues: state.copyValues.concat(["new value"])
+        }))
     }
 
     render() {
         let x = this.state.copyValues.map((value, index) => <Entry key={index} copyValue={value}/>)
-        return <div>{x}</div>
+        return (
+            <div>
+                {x}
+                <button onClick={this.addEntry}>Add more</button>
+            </div>
+        )
     }
 }
 class Entry extends React.Component {
