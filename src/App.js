@@ -43,15 +43,21 @@ class Entry extends React.Component {
         super(props);
         this.state = { copyValue: props.copyValue }
         this.setClipboard = this.setClipboard.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
     setClipboard() {
         navigator.clipboard.writeText(this.state.copyValue)
     }
+
+    handleChange(event) {
+        this.setState({copyValue: event.target.value})
+    }
+
     render() {
         return (
             <div>
-                {this.state.copyValue} <button onClick={this.setClipboard}>Copy</button>
+                <input type="text" value={this.state.copyValue} onChange={this.handleChange}/> <button onClick={this.setClipboard}>Copy</button>
             </div>
         )
     }
