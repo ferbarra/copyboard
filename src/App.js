@@ -38,8 +38,22 @@ class Entries extends React.Component {
     }
 }
 class Entry extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { copyValue: props.copyValue }
+        this.setClipboard = this.setClipboard.bind(this)
+    }
+
+    setClipboard() {
+        navigator.clipboard.writeText(this.state.copyValue)
+    }
     render() {
-        return <p>{this.props.copyValue}</p>
+        return (
+            <div>
+                {this.state.copyValue} <button onClick={this.setClipboard}>Copy</button>
+            </div>
+        )
     }
 }
 
