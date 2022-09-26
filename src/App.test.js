@@ -3,6 +3,6 @@ import App from './App';
 
 test('renders app title', () => {
   render(<App />);
-  const titleElement = screen.getByText(/Copyboardd/i);
+  const titleElement = screen.getByText(/Copyboard/i);
   expect(titleElement).toBeInTheDocument();
 });
